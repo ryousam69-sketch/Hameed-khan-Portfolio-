@@ -1,0 +1,422 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Hameed Codes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+  /* Layout: a single narrow reading column, one section per row, generous vertical rhythm. */
+  :root {
+    --bg: #f5f8f7;
+    --surface: #ffffff;
+    --fg: #14201c;
+    --muted: #55655f;
+    --line: #d9e3df;
+    --accent: #0f6b5c;
+    --accent-soft: #e0f0ec;
+    --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+    --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0d1412;
+      --surface: #141d1a;
+      --fg: #e5eeea;
+      --muted: #9bada6;
+      --line: #25322e;
+      --accent: #4fc3a8;
+      --accent-soft: #163029;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d1412;
+    --surface: #141d1a;
+    --fg: #e5eeea;
+    --muted: #9bada6;
+    --line: #25322e;
+    --accent: #4fc3a8;
+    --accent-soft: #163029;
+    color-scheme: dark;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; }
+  section[id] { scroll-margin-top: 5rem; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  /* Hero banner: stays dark in both themes so the animation always reads. */
+  .hero {
+    --h-bg: #070f0d;
+    --h-fg: #ecf5f1;
+    --h-muted: #9fb5ad;
+    --h-accent: #4fc3a8;
+    background:
+      radial-gradient(60% 80% at 85% 0%, rgba(79, 195, 168, 0.16), transparent 70%),
+      var(--h-bg);
+    color: var(--h-fg);
+  }
+  .hero-grid {
+    background-image:
+      linear-gradient(rgba(79, 195, 168, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(79, 195, 168, 0.07) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 30%, transparent 100%);
+    animation: grid-drift 14s linear infinite;
+  }
+  @keyframes grid-drift { to { background-position: 0 44px, 44px 0; } }
+  .hero h1 { color: var(--h-fg); }
+  .hero-accent { color: var(--h-accent); }
+  .hero-chip {
+    color: var(--h-muted);
+    border: 1px solid rgba(79, 195, 168, 0.35);
+    background: rgba(79, 195, 168, 0.08);
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+  }
+  .hero-dot {
+    width: 0.5rem; height: 0.5rem; border-radius: 50%;
+    background: var(--h-accent);
+    box-shadow: 0 0 0 0 rgba(79, 195, 168, 0.6);
+    animation: pulse 2s ease-out infinite;
+  }
+  @keyframes pulse {
+    to { box-shadow: 0 0 0 10px rgba(79, 195, 168, 0); }
+  }
+  .hero-cursor {
+    display: inline-block; width: 0.6ch; height: 1.1em; margin-left: 2px;
+    background: var(--h-accent);
+    animation: blink 1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  .hero-btn-solid { background: var(--h-accent); color: #04110d; transition: transform .15s ease, box-shadow .15s ease; }
+  .hero-btn-solid:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79, 195, 168, 0.35); }
+  .hero-btn-line { border: 1px solid rgba(236, 245, 241, 0.35); color: var(--h-fg); transition: border-color .15s ease, color .15s ease; }
+  .hero-btn-line:hover { border-color: var(--h-accent); color: var(--h-accent); }
+  .hero-edge {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--h-accent), transparent);
+    opacity: 0.7;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+    .hero-grid, .hero-dot, .hero-cursor { animation: none !important; }
+  }
+</style>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          bg: "var(--bg)",
+          surface: "var(--surface)",
+          fg: "var(--fg)",
+          muted: "var(--muted)",
+          line: "var(--line)",
+          accent: "var(--accent)",
+          soft: "var(--accent-soft)"
+        },
+        fontFamily: {
+          display: "var(--font-display)",
+          body: "var(--font-body)",
+          mono: "var(--font-mono)"
+        }
+      }
+    }
+  };
+</script>
+
+<header class="sticky z-10 border-b border-line bg-bg/90 backdrop-blur" style="top: env(safe-area-inset-top, 0px)">
+  <div class="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-3 sm:px-6">
+    <a href="#top" class="font-mono text-sm font-medium text-fg">hameed.codes</a>
+    <div class="flex items-center gap-4">
+      <nav aria-label="Sections" class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted">
+        <a class="hover:text-accent" href="#about">About</a>
+        <a class="hover:text-accent" href="#experience">Experience</a>
+        <a class="hover:text-accent" href="#projects">Projects</a>
+        <a class="hover:text-accent" href="#skills">Skills</a>
+        <a class="hover:text-accent" href="#contact">Contact</a>
+      </nav>
+      <button id="theme-toggle" type="button" class="rounded border border-line px-2 py-1 font-mono text-xs text-muted hover:text-accent" aria-label="Toggle light and dark theme">Theme</button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero: full-width animated banner (canvas network + typed skills line) -->
+<section id="top" class="hero relative overflow-hidden">
+  <canvas id="hero-canvas" class="absolute inset-0 h-full w-full" aria-hidden="true"></canvas>
+  <div class="hero-grid absolute inset-0" aria-hidden="true"></div>
+  <div class="relative mx-auto max-w-3xl px-4 py-20 sm:px-6 sm:py-32">
+    <p class="hero-chip mb-8 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest">
+      <span class="hero-dot" aria-hidden="true"></span>
+      Islamabad / Peshawar, Pakistan
+    </p>
+    <h1 class="text-[2.6rem] font-bold leading-[1.02] tracking-tight sm:text-7xl">
+      E-Commerce Professional <span class="hero-accent">&amp; Aspiring Web Developer</span>
+    </h1>
+    <p class="mt-8 flex min-h-[2rem] flex-wrap items-center font-mono text-base sm:text-lg" aria-label="Shopify, paid ads, product research, HTML, CSS, JavaScript, Linux">
+      <span class="hero-accent mr-2" aria-hidden="true">&gt;</span>
+      <span id="typed" aria-hidden="true">Shopify storefront design</span><span class="hero-cursor" aria-hidden="true"></span>
+    </p>
+    <div class="mt-12 flex flex-wrap gap-3">
+      <a href="#contact" class="hero-btn-solid rounded px-6 py-3 text-sm font-medium">Get in touch</a>
+      <a href="#projects" class="hero-btn-line rounded px-6 py-3 text-sm font-medium">See projects</a>
+    </div>
+  </div>
+  <div class="hero-edge" aria-hidden="true"></div>
+</section>
+
+<main class="mx-auto max-w-3xl px-4 sm:px-6">
+
+  <!-- About -->
+  <section id="about" class="border-t border-line py-16 sm:py-20">
+    <h2 class="mb-6 text-2xl font-bold sm:text-3xl">About Me</h2>
+    <div class="max-w-prose space-y-4 text-muted">
+      <p>I am an e-commerce professional with hands-on experience in Shopify storefront design, paid ads, and product research.</p>
+      <p>I am currently building my technical capabilities in HTML, CSS, JavaScript, Linux, and backend development.</p>
+      <p>I hold an FSc in Computer Science and am currently enrolled in SMIT Backend Development.</p>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="border-t border-line py-16 sm:py-20">
+    <h2 class="mb-10 text-2xl font-bold sm:text-3xl">Experience</h2>
+    <div class="space-y-10">
+      <article>
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+          <h3 class="text-lg font-bold">Phonecase.pk &amp; Degionix</h3>
+          <span class="rounded bg-soft px-2 py-0.5 font-mono text-xs text-accent">Current</span>
+        </div>
+        <p class="mt-2 max-w-prose text-muted">Managing Shopify store updates, product presentation, competitor research, and advertising tasks.</p>
+      </article>
+      <article>
+        <h3 class="text-lg font-bold">Ecom Insighter &amp; Hamid E-Commerce</h3>
+        <p class="mt-2 max-w-prose text-muted">Supported e-commerce operations, product validation, and store optimization.</p>
+      </article>
+      <article>
+        <h3 class="text-lg font-bold">Afrdi Import</h3>
+        <p class="mt-2 max-w-prose text-muted">Previous professional work experience.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="border-t border-line py-16 sm:py-20">
+    <h2 class="mb-10 text-2xl font-bold sm:text-3xl">Projects</h2>
+    <div class="space-y-6">
+      <article class="rounded-lg border border-line bg-surface p-6">
+        <h3 class="text-lg font-bold">Shopify Store Concepts</h3>
+        <p class="mt-2 text-muted">Created comprehensive stores for home accessories, jewellery, and men's accessories.</p>
+      </article>
+      <article class="rounded-lg border border-line bg-surface p-6">
+        <h3 class="text-lg font-bold">Advertising Testing</h3>
+        <p class="mt-2 text-muted">Researched and tested e-commerce products using TikTok Creative Center and Meta Ads Library.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="border-t border-line py-16 sm:py-20">
+    <h2 class="mb-8 text-2xl font-bold sm:text-3xl">Skills</h2>
+    <ul class="flex flex-wrap gap-3">
+      <li class="rounded border border-line bg-surface px-4 py-2 text-sm">Shopify</li>
+      <li class="rounded border border-line bg-surface px-4 py-2 text-sm">TikTok/Meta Ads Manager</li>
+      <li class="rounded border border-line bg-surface px-4 py-2 text-sm">HTML</li>
+      <li class="rounded border border-line bg-surface px-4 py-2 text-sm">CSS</li>
+      <li class="rounded border border-line bg-surface px-4 py-2 text-sm">JavaScript <span class="text-muted">(learning)</span></li>
+      <li class="rounded border border-line bg-surface px-4 py-2 text-sm">React <span class="text-muted">(learning)</span></li>
+      <li class="rounded border border-line bg-surface px-4 py-2 text-sm">Linux</li>
+      <li class="rounded border border-line bg-surface px-4 py-2 text-sm">VS Code</li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="border-t border-line py-16 sm:py-20">
+    <h2 class="mb-8 text-2xl font-bold sm:text-3xl">Contact</h2>
+    <dl class="divide-y divide-line border-y border-line">
+      <div class="flex flex-col gap-1 py-4 sm:flex-row sm:items-center sm:gap-6">
+        <dt class="font-mono text-xs uppercase tracking-widest text-muted sm:w-28">Location</dt>
+        <dd class="min-w-0">Islamabad/Peshawar, Pakistan</dd>
+      </div>
+      <div class="flex flex-col gap-1 py-4 sm:flex-row sm:items-center sm:gap-6">
+        <dt class="font-mono text-xs uppercase tracking-widest text-muted sm:w-28">Phone</dt>
+        <dd class="flex min-w-0 flex-wrap items-center gap-3">
+          <span class="select-all">03235199428</span>
+          <button type="button" data-copy="03235199428" class="rounded border border-line px-2 py-0.5 font-mono text-xs text-muted hover:text-accent">Copy</button>
+        </dd>
+      </div>
+      <div class="flex flex-col gap-1 py-4 sm:flex-row sm:items-center sm:gap-6">
+        <dt class="font-mono text-xs uppercase tracking-widest text-muted sm:w-28">Email</dt>
+        <dd class="flex min-w-0 flex-wrap items-center gap-3">
+          <span class="select-all break-all">hameed.codes@gmail.com</span>
+          <button type="button" data-copy="hameed.codes@gmail.com" class="rounded border border-line px-2 py-0.5 font-mono text-xs text-muted hover:text-accent">Copy</button>
+        </dd>
+      </div>
+      <div class="flex flex-col gap-1 py-4 sm:flex-row sm:items-center sm:gap-6">
+        <dt class="font-mono text-xs uppercase tracking-widest text-muted sm:w-28">LinkedIn</dt>
+        <dd class="min-w-0 break-all">
+          <a class="text-accent underline underline-offset-4" href="https://linkedin.com/in/hameed-codes" target="_blank" rel="noopener noreferrer">linkedin.com/in/hameed-codes</a>
+        </dd>
+      </div>
+    </dl>
+  </section>
+</main>
+
+<footer class="border-t border-line">
+  <div class="mx-auto max-w-3xl px-4 py-8 text-sm text-muted sm:px-6">
+    <p class="font-mono">&copy; <span id="year">2026</span> hameed.codes</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Hero typed line: cycles through the skills with a typing effect.
+    var typed = document.getElementById("typed");
+    var phrases = [
+      "Shopify storefront design",
+      "Paid ads on TikTok and Meta",
+      "Product research",
+      "HTML, CSS and JavaScript",
+      "Linux and backend development"
+    ];
+    if (typed && !reduceMotion) {
+      var p = 0, c = 0, deleting = false;
+      (function tick() {
+        var word = phrases[p];
+        c += deleting ? -1 : 1;
+        typed.textContent = word.slice(0, c);
+        var delay = deleting ? 28 : 55;
+        if (!deleting && c === word.length) { deleting = true; delay = 1400; }
+        else if (deleting && c === 0) { deleting = false; p = (p + 1) % phrases.length; delay = 350; }
+        setTimeout(tick, delay);
+      })();
+    }
+
+    // Hero canvas: drifting nodes joined by lines, pulled toward the pointer.
+    var canvas = document.getElementById("hero-canvas");
+    if (canvas && canvas.getContext) {
+      var ctx = canvas.getContext("2d");
+      var w = 0, h = 0, dpr = 1, nodes = [], mouse = { x: -999, y: -999 };
+      var LINK = 130;
+
+      var resize = function () {
+        var rect = canvas.getBoundingClientRect();
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        w = rect.width; h = rect.height;
+        canvas.width = Math.round(w * dpr);
+        canvas.height = Math.round(h * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        var count = Math.max(24, Math.min(80, Math.round((w * h) / 13000)));
+        nodes = [];
+        for (var i = 0; i < count; i++) {
+          nodes.push({
+            x: Math.random() * w, y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35
+          });
+        }
+      };
+
+      var draw = function (animate) {
+        ctx.clearRect(0, 0, w, h);
+        for (var i = 0; i < nodes.length; i++) {
+          var n = nodes[i];
+          if (animate) {
+            n.x += n.vx; n.y += n.vy;
+            if (n.x < 0 || n.x > w) n.vx *= -1;
+            if (n.y < 0 || n.y > h) n.vy *= -1;
+            var dx = mouse.x - n.x, dy = mouse.y - n.y, d = Math.sqrt(dx * dx + dy * dy);
+            if (d < 160 && d > 1) { n.x += dx / d * 0.35; n.y += dy / d * 0.35; }
+          }
+          for (var j = i + 1; j < nodes.length; j++) {
+            var m = nodes[j], ex = n.x - m.x, ey = n.y - m.y, dist = Math.sqrt(ex * ex + ey * ey);
+            if (dist < LINK) {
+              ctx.strokeStyle = "rgba(79,195,168," + (0.38 * (1 - dist / LINK)).toFixed(3) + ")";
+              ctx.lineWidth = 1;
+              ctx.beginPath(); ctx.moveTo(n.x, n.y); ctx.lineTo(m.x, m.y); ctx.stroke();
+            }
+          }
+          ctx.fillStyle = "rgba(79,195,168,0.85)";
+          ctx.beginPath(); ctx.arc(n.x, n.y, 1.8, 0, Math.PI * 2); ctx.fill();
+        }
+      };
+
+      var running = true;
+      var loop = function () {
+        if (running) draw(true);
+        requestAnimationFrame(loop);
+      };
+
+      resize();
+      window.addEventListener("resize", function () { resize(); if (reduceMotion) draw(false); });
+      var heroEl = canvas.parentElement;
+      heroEl.addEventListener("pointermove", function (e) {
+        var r = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+      });
+      heroEl.addEventListener("pointerleave", function () { mouse.x = -999; mouse.y = -999; });
+      document.addEventListener("visibilitychange", function () { running = !document.hidden; });
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function (entries) {
+          running = entries[0].isIntersecting && !document.hidden;
+        }).observe(heroEl);
+      }
+      if (reduceMotion) { draw(false); } else { loop(); }
+    }
+
+    // Theme toggle: switches between light and dark by setting data-theme on the root element.
+    var root = document.documentElement;
+    var toggle = document.getElementById("theme-toggle");
+    toggle.addEventListener("click", function () {
+      var explicit = root.getAttribute("data-theme");
+      var systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var isDark = explicit ? explicit === "dark" : systemDark;
+      root.setAttribute("data-theme", isDark ? "light" : "dark");
+    });
+
+    // Copy buttons: copy the value, fall back to selecting the text if the clipboard is refused.
+    document.querySelectorAll("[data-copy]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var value = btn.getAttribute("data-copy");
+        var done = function () {
+          var old = btn.textContent;
+          btn.textContent = "Copied";
+          setTimeout(function () { btn.textContent = old; }, 1500);
+        };
+        var fallback = function () {
+          var target = btn.previousElementSibling;
+          if (!target) return;
+          var range = document.createRange();
+          range.selectNodeContents(target);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        };
+        try {
+          navigator.clipboard.writeText(value).then(done, fallback);
+        } catch (e) {
+          fallback();
+        }
+      });
+    });
+  })();
+</script>
+
+</body></html>
